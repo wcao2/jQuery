@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>jQuery | title</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <style>
+            body{
+                font-size: 17px;
+                font-family: arial;
+                background: #f4f4f4;
+                line-height: 1.5em;
+            }
+            header{
+                background: #333;
+                color:#fff;
+                padding: 20px;
+                text-align: center;
+                border-bottom: 4px #000 solid;
+                margin-bottom: 10px;
+            }
+            #container{
+                width:90%;
+                margin:auto;
+                padding:10px;
+            }
+            #box{
+                color:white;
+                background: #333;
+                width: 500px;
+                height:90px;
+                padding:40px;
+                text-align: center;
+            }
+            #box2{
+                background:red;
+                width:100px;
+                height:100px;
+                position:relative;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header><h1>jQuery basic</h1></header>
+        <div id="container">
+            <button id="fadeOut">FO</button>
+            <button id="fadeIn">FI</button>
+            <button id="fadeTog">FT</button>
+            <hr>
+            <button id="slideTog">ST</button>
+            <button id="stop">stop</button>
+            <div id="box"><h1>Hello World</h1></div>
+            <hr>
+            <button id="moveLeft">Move Left</button>
+            <button id="moveRight">Move Right</button>
+            <button id="moveAround">MoveAround</button>
+            <div id="box2"></div>
+
+        </div>
+
+        <script>
+           $(document).ready(function(){
+                // $('#fadeOut').click(function(){
+                //     //$('#box').empty();
+                //     //slow, 3000
+                //     $('#box').fadeOut(3000,function(){
+                //         $('#fadeOut').text('Its Gone')
+                //         $('#fadeIn').text('FI')
+                //     });
+                // })
+
+                // $('#fadeIn').click(function(){
+                //     $('#box').fadeIn(3000,function(){
+                //         $('#fadeIn').text('Its back')
+                //         $('#fadeOut').text('FO')
+                //     });
+                // })
+                $('#fadeTog').click(function(){
+                    $('#box').fadeToggle(1000);
+                })
+                $('#slideTog').click(function(){
+                    $('#box').slideToggle(5000);
+                })
+                $('#stop').click(function(){
+                    $('#box').stop();
+                })
+
+                $('#moveRight').click(function(){
+                    $('#box2').animate({
+                        left:500,
+                        height:'300px',
+                        width:'300px',
+                        opacity:'0.5'
+                    });
+                })
+                $('#moveLeft').click(function(){
+                    $('#box2').animate({
+                        left:0,
+                        height:'100px',
+                        width:'100px',
+                        opacity:'1'
+                    });
+                })
+                $('#moveAround').click(function(){
+                    var box=$('#box2');
+                    box.animate({left:300})
+                    box.animate({top:300})
+                    box.animate({top:300,left:0})
+                    box.animate({left:0,top:0})
+                })
+           });
+        </script>
+    </body>
+</html>
